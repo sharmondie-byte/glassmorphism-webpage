@@ -1,0 +1,7 @@
+{
+  "name": "glassmorphism-webpage",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
