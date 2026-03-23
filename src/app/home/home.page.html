@@ -1,105 +1,90 @@
-<ion-content scrollY="true" fullscreen>
+<ion-content>
 
-  <!-- Frosted Header -->
-  <header class="frosted-bar">
-    <h1 class="glass-title">Flavuor</h1>
-    <p class="glass-subtitle">Taste Meets Biotechnology</p>
-  </header>
+  <div class="main-glass">
 
-  <!-- CTA -->
-  <div class="cta-container">
+    <!-- HERO TITLE -->
+    <h1 class="hero-title glass-title" data-text="Flavuor">Flavuor</h1>
+
+    <!-- CTA BUTTON -->
     <button class="cta-button">EXPLORE OUR PLATFORM</button>
-  </div>
 
-  <!-- About card glass-panel-->
-  <section class="glass-panel about-card">
-    <h2>About Flavuor</h2>
-    <p>
-      Flavuor combines the art of taste with biotechnology. Our platform
-      empowers creators, chefs, and innovators to design sustainable,
-      unique flavors while experimenting with recipes in a seamless
-      digital environment.
-    </p>
-  </section>
+    <!-- TEXT SECTION -->
+    <section class="text-section">
 
-  <div class="glass-panel">
-    <h2>Organizational Overview</h2>
-    <p>
-      Our platform helps teams manage projects, collaboration,
-      and business workflows in one seamless environment.
-      By combining modern design with powerful tools,
-      we simplify how organizations operate and grow.
-    </p>
-  </div>
+      <h2 class="glass-title" data-text="Organizational Overview">Organizational Overview</h2>
+      <p>
+        FLVR (Flavuor) is a multidisciplinary technology and innovation company specializing in the development
+        and integration of hardware, software, and artificial intelligence systems.
+      </p>
 
-  <div class="glass-panel">
-    <h2>Our Mission</h2>
-    <p>
-      We aim to empower teams with intuitive tools that
-      streamline communication, automate workflows,
-      and improve productivity across departments.
-    </p>
-  </div>
+      <p>
+        We design and build smart, connected, and data-driven solutions — combining embedded hardware
+        (Arduino, sensors, IoT) with custom software, AI pipelines, and data systems that improve automation,
+        decision-making, and efficiency.
+      </p>
 
-  <div class="glass-panel">
-    <h2>Core Capabilities</h2>
-    <ul>
-      <li>Project and task management</li>
-      <li>Team collaboration tools</li>
-      <li>Workflow automation</li>
-      <li>Business analytics and reporting</li>
-    </ul>
-  </div>
+      <h2 class="glass-title" data-text="Our Mission">Our Mission</h2>
+      <p>
+        We aim to empower teams with intuitive tools that streamline communication, automate workflows,
+        and improve productivity across departments.
+      </p>
 
-  <div class="glass-panel">
-    <h2>How It Works</h2>
-    <p>
-      Teams organize their work into projects, assign tasks,
-      track progress, and collaborate in real time.
-      Managers gain insights through dashboards
-      and analytics that help guide better decisions.
-    </p>
-  </div>
+    </section>
 
-  <div class="glass-panel">
-    <h2>Why It Matters</h2>
-    <p>
-      Modern organizations need flexible tools that adapt
-      to changing workflows. Our solution provides a unified
-      workspace where teams can focus on delivering results
-      instead of managing disconnected systems.
-    </p>
-  </div>
+    <!-- SPLIT GRID -->
+    <div class="split-grid">
 
-  <!-- Feature Cards -->
-  <section class="feature-grid">
-    <div class="feature-card">
-      <h3>Innovative Recipes</h3>
-      <p>Experiment with biotech-driven flavours that are bold and unique.</p>
+      <!-- LEFT -->
+      <div>
+        <h2 class="glass-title" data-text="Core Capabilities">Core Capabilities</h2>
+        <ul>
+          <li>Project and task management</li>
+          <li>Team collaboration tools</li>
+          <li>Workflow automation</li>
+          <li>Business analytics and reporting</li>
+        </ul>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="stats-box">
+
+        <h2 class="glass-title" data-text="Stats">Stats</h2>
+
+        <div class="stat-pill">
+          <span class="stat-number">124</span>
+          <span>Active Projects</span>
+        </div>
+
+        <div class="stat-pill">
+          <span class="stat-number">56</span>
+          <span>Clients</span>
+        </div>
+
+        <div class="stat-pill">
+          <span class="stat-number">32</span>
+          <span>AI Systems</span>
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="feature-card">
-      <h3>Interactive Dashboard</h3>
-      <p>Track flavour experiments and collaborate with creators.</p>
+    <!-- CHART -->
+    <div class="chart-card glass-card">
+      <canvas #chartCanvas></canvas>
     </div>
 
-    <div class="feature-card">
-      <h3>Sustainability Focus</h3>
-      <p>Develop environmentally friendly ingredients while maximizing taste.</p>
-    </div>
+    <!-- CONTACT FORM -->
+    <section class="contact-section">
+      <h2 class="glass-title" data-text="Get in Touch">Get in Touch</h2>
+      <form class="contact-form" (submit)="submitForm($event)">
+        <input type="text" placeholder="Your Name" name="name" required />
+        <input type="email" placeholder="Your Email" name="email" required />
+        <input type="tel" placeholder="Phone Number" name="phone" />
+        <button type="submit" class="cta-button">Submit</button>
+      </form>
+    </section>
 
-    <div class="feature-card">
-      <h3>Community & Support</h3>
-      <p>Share creations and grow with a network of flavor innovators.</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="frosted-bar footer">
-    <p>Flavuor Inc | info@flavuor.com | +27 68 123 4567</p>
-  </footer>
-
-
+  </div>
 
 </ion-content>
-
