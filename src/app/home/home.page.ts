@@ -16,7 +16,7 @@ export class HomePage implements AfterViewInit {
   ngAfterViewInit() {
     setTimeout(() => {
       this.createChart();
-    }, 100); // ensures DOM is ready
+    }, 100); 
   }
 
   createChart() {

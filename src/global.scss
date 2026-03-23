@@ -23,7 +23,7 @@ body {
 }
 
 /* =========================
-   🔥 REAL BACKGROUND FIX (IONIC SAFE)
+  BACKGROUND FIX (IONIC SAFE)
 ========================= */
 ion-content {
   --background: transparent;
@@ -31,7 +31,7 @@ ion-content {
   backdrop-filter: blur(2px) brightness(0.75);
 }
 
-/* optional subtle dark overlay  */
+
 ion-content::part(background) {
   background: rgba(0, 0, 0, 0.35);
 }
@@ -73,10 +73,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   text-align: center;
 
-  /* THIS is the key */
+  
   color: rgba(255, 255, 255, 0.85);
 
-  /* Soft gradient highlight like your image */
+  /* Soft gradient highlight  */
   background: linear-gradient(
     180deg,
     rgba(255,255,255,0.95) 0%,
@@ -93,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
     0 2px 6px rgba(255,255,255,0.3),
     0 8px 25px rgba(255,255,255,0.25);
 
-  /* Subtle edge like your screenshot */
+  /* Subtle edge */
   -webkit-text-stroke: 0.5px rgba(255,255,255,0.25);
 }
 
@@ -167,7 +167,7 @@ h3 { font-size: 2rem; }
 }
 
 /* =========================
-   CHART (FIXED)
+   CHART CARD
 ========================= */
 .chart-card {
   margin-top: 40px;
