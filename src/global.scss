@@ -15,7 +15,6 @@ body, html {
   background: transparent !important;
 }
 
-/* Override Ionic's fixed body for web scrolling */
 body {
   position: static !important;
   overflow: auto !important;
@@ -23,7 +22,7 @@ body {
 }
 
 /* =========================
-  BACKGROUND FIX (IONIC SAFE)
+  BACKGROUND
 ========================= */
 ion-content {
   --background: transparent;
@@ -31,12 +30,10 @@ ion-content {
   backdrop-filter: blur(2px) brightness(0.75);
 }
 
-
 ion-content::part(background) {
   background: rgba(0, 0, 0, 0.35);
 }
 
-/* Ensure full height for web scrolling */
 ion-app {
   height: 100vh;
 }
@@ -50,57 +47,45 @@ ion-content {
    MAIN GLASS PANEL
 ========================= */
 .main-glass {
-  max-width: 1300px;
-  margin: 40px auto;
+  max-width: 1700px;
+  margin: 0 auto;
   padding: 40px;
   border-radius: 30px;
-
   background: rgba(255,255,255,0.06);
   backdrop-filter: blur(4px) saturate(140%);
   -webkit-backdrop-filter: blur(10px) saturate(140%);
-
   border: 1px solid rgba(255,255,255,0.18);
-
   box-shadow:
     0 20px 60px rgba(0,0,0,0.5),
     inset 0 1px 0 rgba(255,255,255,0.2);
 }
 
-/* Frosted Glass Text Effect */
+/* =========================
+   GLASS TEXT
+========================= */
 .glass-text,
 h1, h2, h3, h4, h5, h6 {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Mona Sans', sans-serif;
   font-weight: 600;
   text-align: center;
-
-  
-  color: rgba(255, 255, 255, 0.85);
-
-  /* Soft gradient highlight  */
+  color: transparent;
   background: linear-gradient(
     180deg,
     rgba(255,255,255,0.95) 0%,
     rgba(255,255,255,0.65) 50%,
     rgba(255,255,255,0.35) 100%
   );
-
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
-
-  /* Glow = the "glass" illusion */
   text-shadow:
     0 2px 6px rgba(255,255,255,0.3),
     0 8px 25px rgba(255,255,255,0.25);
-
-  /* Subtle edge */
   -webkit-text-stroke: 0.5px rgba(255,255,255,0.25);
 }
 
 h1 { font-size: 4.5rem; }
 h2 { font-size: 2.5rem; }
 h3 { font-size: 2rem; }
-
 
 /* =========================
    CTA BUTTON
@@ -110,10 +95,8 @@ h3 { font-size: 2rem; }
   margin: 20px auto 40px auto;
   padding: 14px 30px;
   border-radius: 14px;
-
   background: rgba(255,255,255,0.1);
   border: 1px solid rgba(255,255,255,0.3);
-
   color: #f2f2f2;
   font-weight: 600;
   cursor: pointer;
@@ -128,8 +111,6 @@ h3 { font-size: 2rem; }
   opacity: 0.85;
   color: rgba(255,255,255,0.9);
 }
-
-
 
 /* =========================
    SPLIT GRID
@@ -157,7 +138,6 @@ h3 { font-size: 2rem; }
   justify-content: space-between;
   padding: 14px;
   border-radius: 14px;
-
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.2);
 }
@@ -171,13 +151,15 @@ h3 { font-size: 2rem; }
 ========================= */
 .chart-card {
   margin-top: 40px;
-  height: 260px;
-  position: relative;
+  height: 320px;
+  min-height: 320px;
+  display: flex;
 }
 
 .chart-card canvas {
   width: 100% !important;
   height: 100% !important;
+  display: block;
 }
 
 /* =========================
@@ -189,19 +171,6 @@ h3 { font-size: 2rem; }
   border-radius: 18px;
   padding: 16px;
   border: 1px solid rgba(255,255,255,0.15);
-}
-
-/* =========================
-   MOBILE
-========================= */
-@media (max-width: 768px) {
-  .split-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-title {
-    font-size: 42px;
-  }
 }
 
 /* =========================
@@ -261,3 +230,124 @@ h3 { font-size: 2rem; }
 .split-grid > div h2 {
   text-align: left;
 }
+
+/* =========================
+   DASHBOARD CONTAINER
+========================= */
+.dashboard-container {
+  max-width: 1400px;
+  margin: 40px auto;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px) saturate(140%);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  overflow: hidden;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+.top-bar {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.nav-title {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* =========================
+   BODY + SIDEBAR
+========================= */
+.dashboard-body {
+  display: flex;
+  min-height: calc(100vh - 70px);
+}
+
+.side-bar {
+  width: 220px;
+  padding: 20px;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.side-bar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-bar li {
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.side-bar li.active {
+  background: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.95);
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.main-glass {
+  margin: 0;
+  max-width: 100%;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profile-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin: 0 auto 10px auto;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+}
+
+
+

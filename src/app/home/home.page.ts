@@ -22,7 +22,11 @@ export class HomePage implements AfterViewInit {
   createChart() {
     if (!this.chartRef) return;
 
-    const ctx = this.chartRef.nativeElement.getContext('2d');
+    const canvas = this.chartRef.nativeElement as HTMLCanvasElement;
+const ctx = canvas.getContext('2d');
+
+if (!ctx) return;
+
 
     new Chart(ctx, {
       type: 'bar',

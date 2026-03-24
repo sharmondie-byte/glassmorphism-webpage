@@ -1,90 +1,100 @@
 <ion-content>
+  <div class="dashboard-container">
 
-  <div class="main-glass">
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="logo">🌿 Flavuor</div>
+      <div class="nav-title">Dashboard</div>
+      <div class="top-actions">
+        <span>🔍</span>
+      </div>
+    </div>
 
-    <!-- HERO TITLE -->
-    <h1 class="hero-title glass-title" data-text="Flavuor">Flavuor</h1>
+    <div class="dashboard-body">
 
-    <!-- CTA BUTTON -->
-    <button class="cta-button">EXPLORE OUR PLATFORM</button>
+      <!-- SIDEBAR -->
+      <aside class="side-bar">
+        <div class="profile">
+          <div class="profile-icon">👤</div>
+          <h3>Mondie</h3>
+          <p>FLVR Intern</p>
+        </div>
 
-    <!-- TEXT SECTION -->
-    <section class="text-section">
-
-      <h2 class="glass-title" data-text="Organizational Overview">Organizational Overview</h2>
-      <p>
-        FLVR (Flavuor) is a multidisciplinary technology and innovation company specializing in the development
-        and integration of hardware, software, and artificial intelligence systems.
-      </p>
-
-      <p>
-        We design and build smart, connected, and data-driven solutions — combining embedded hardware
-        (Arduino, sensors, IoT) with custom software, AI pipelines, and data systems that improve automation,
-        decision-making, and efficiency.
-      </p>
-
-      <h2 class="glass-title" data-text="Our Mission">Our Mission</h2>
-      <p>
-        We aim to empower teams with intuitive tools that streamline communication, automate workflows,
-        and improve productivity across departments.
-      </p>
-
-    </section>
-
-    <!-- SPLIT GRID -->
-    <div class="split-grid">
-
-      <!-- LEFT -->
-      <div>
-        <h2 class="glass-title" data-text="Core Capabilities">Core Capabilities</h2>
         <ul>
-          <li>Project and task management</li>
-          <li>Team collaboration tools</li>
-          <li>Workflow automation</li>
-          <li>Business analytics and reporting</li>
+          <li class="active">🏠 Home</li>
+          <li>Projects</li>
+          <li>Tasks</li>
+          <li>Calendar</li>
+          <li>Files</li>
+          <li>Analytics</li>
+          <li>Settings</li>
+          <li>Logout</li>
         </ul>
-      </div>
+      </aside>
 
-      <!-- RIGHT -->
-      <div class="stats-box">
+      <!-- MAIN CONTENT -->
+      <div class="main-content">
 
-        <h2 class="glass-title" data-text="Stats">Stats</h2>
+        <div class="main-glass">
 
-        <div class="stat-pill">
-          <span class="stat-number">124</span>
-          <span>Active Projects</span>
+          <!-- HERO TITLE -->
+          <h1 class="hero-title glass-title" data-text="Flavuor">Flavuor</h1>
+
+          <!-- CTA BUTTON -->
+          <button class="cta-button">EXPLORE OUR PLATFORM</button>
+
+          <!-- TEXT SECTION -->
+          <section class="text-section">
+            <h2 class="glass-title" data-text="Organizational Overview">Organizational Overview</h2>
+            <p>FLVR (Flavuor) is a multidisciplinary technology and innovation company specializing in hardware, software, and AI.</p>
+            <p>FLVR (Flavuor) is a multidisciplinary technology and innovation company specializing in the development and integration of hardware, software, and artificial intelligence systems.
+
+We design and build smart, connected, and data-driven solutions — combining embedded hardware (Arduino, sensors, IoT) with custom software, AI pipelines, and data systems that improve automation, decision-making, and efficiency.
+            <h2 class="glass-title" data-text="Our Mission">Our Mission</h2>
+            <p>We aim to empower teams with intuitive tools that streamline communication, automate workflows, and improve productivity across departments.</p>
+          </section>
+
+          <!-- SPLIT GRID -->
+          <div class="split-grid">
+
+            <div>
+              <h2 class="glass-title" data-text="Core Capabilities">Core Capabilities</h2>
+              <ul>
+                <li>Project and task management</li>
+                <li>Team collaboration tools</li>
+                <li>Workflow automation</li>
+                <li>Business analytics and reporting</li>
+              </ul>
+            </div>
+
+            <div class="stats-box">
+              <h2 class="glass-title" data-text="Stats">Stats</h2>
+              <div class="stat-pill"><span class="stat-number">124</span><span>Active Projects</span></div>
+              <div class="stat-pill"><span class="stat-number">56</span><span>Clients</span></div>
+              <div class="stat-pill"><span class="stat-number">32</span><span>AI Systems</span></div>
+            </div>
+
+          </div>
+
+          <!-- CHART -->
+          <div class="chart-card glass-card">
+            <canvas #chartCanvas style="width:100%; height:320px;"></canvas>
+          </div>
+
+          <!-- CONTACT FORM -->
+          <section class="contact-section">
+            <h2 class="glass-title" data-text="Get in Touch">Get in Touch</h2>
+            <form class="contact-form" (submit)="submitForm($event)">
+              <input type="text" placeholder="Your Name" name="name" required />
+              <input type="email" placeholder="Your Email" name="email" required />
+              <input type="tel" placeholder="Phone Number" name="phone" />
+              <button type="submit" class="cta-button">Submit</button>
+            </form>
+          </section>
+
         </div>
-
-        <div class="stat-pill">
-          <span class="stat-number">56</span>
-          <span>Clients</span>
-        </div>
-
-        <div class="stat-pill">
-          <span class="stat-number">32</span>
-          <span>AI Systems</span>
-        </div>
-
       </div>
 
     </div>
-
-    <!-- CHART -->
-    <div class="chart-card glass-card">
-      <canvas #chartCanvas></canvas>
-    </div>
-
-    <!-- CONTACT FORM -->
-    <section class="contact-section">
-      <h2 class="glass-title" data-text="Get in Touch">Get in Touch</h2>
-      <form class="contact-form" (submit)="submitForm($event)">
-        <input type="text" placeholder="Your Name" name="name" required />
-        <input type="email" placeholder="Your Email" name="email" required />
-        <input type="tel" placeholder="Phone Number" name="phone" />
-        <button type="submit" class="cta-button">Submit</button>
-      </form>
-    </section>
-
   </div>
-
 </ion-content>
