@@ -2,6 +2,34 @@ import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import Chart from 'chart.js/auto';
 
+import { addIcons } from 'ionicons';
+import {
+  homeOutline,
+  folderOutline,
+  checkboxOutline,
+  calendarOutline,
+  documentOutline,
+  barChartOutline,
+  settingsOutline,
+  logOutOutline,
+  searchOutline,
+  notificationsOutline
+} from 'ionicons/icons';
+
+addIcons({
+  homeOutline,
+  folderOutline,
+  checkboxOutline,
+  calendarOutline,
+  documentOutline,
+  barChartOutline,
+  settingsOutline,
+  logOutOutline,
+  searchOutline,
+  notificationsOutline
+});
+
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -16,7 +44,7 @@ export class HomePage implements AfterViewInit {
   ngAfterViewInit() {
     setTimeout(() => {
       this.createChart();
-    }, 100); 
+    }, 200); 
   }
 
   createChart() {

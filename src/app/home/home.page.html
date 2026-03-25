@@ -1,64 +1,69 @@
 <ion-content>
-  <div class="dashboard-container">
+  <div class="app-wrapper">
 
     <!-- TOP BAR -->
-    <div class="top-bar">
-      <div class="logo">🌿 Flavuor</div>
-      <div class="nav-title">Dashboard</div>
-      <div class="top-actions">
-        <span>🔍</span>
+    <header class="top-bar">
+      <div class="left">
+        <div class="logo">Flavuor</div>
+        <span class="nav-title">Dashboard</span>
       </div>
-    </div>
 
-    <div class="dashboard-body">
+      <div class="right">
+        <ion-icon name="search-outline"></ion-icon>
+        <ion-icon name="notifications-outline"></ion-icon>
+        <div class="avatar">S.M</div>
+      </div>
+    </header>
+
+    <div class="layout">
 
       <!-- SIDEBAR -->
-      <aside class="side-bar">
+      <aside class="sidebar">
         <div class="profile">
-          <div class="profile-icon">👤</div>
+          <div class="profile-icon"></div>
           <h3>Mondie</h3>
           <p>FLVR Intern</p>
         </div>
 
         <ul>
-          <li class="active">🏠 Home</li>
-          <li>Projects</li>
-          <li>Tasks</li>
-          <li>Calendar</li>
-          <li>Files</li>
-          <li>Analytics</li>
-          <li>Settings</li>
-          <li>Logout</li>
+          <li class="active"><ion-icon name="home-outline"></ion-icon> Home</li>
+          <li><ion-icon name="folder-outline"></ion-icon> Projects</li>
+          <li><ion-icon name="checkbox-outline"></ion-icon> Tasks</li>
+          <li><ion-icon name="calendar-outline"></ion-icon> Calendar</li>
+          <li><ion-icon name="document-outline"></ion-icon> Files</li>
+          <li><ion-icon name="bar-chart-outline"></ion-icon> Analytics</li>
+          <li><ion-icon name="settings-outline"></ion-icon> Settings</li>
+          <li><ion-icon name="log-out-outline"></ion-icon> Logout</li>
         </ul>
       </aside>
 
-      <!-- MAIN CONTENT -->
-      <div class="main-content">
+      <!-- MAIN -->
+      <main class="main">
+        <div class="content">
 
-        <div class="main-glass">
+          <h1 class="hero">Flavuor</h1>
 
-          <!-- HERO TITLE -->
-          <h1 class="hero-title glass-title" data-text="Flavuor">Flavuor</h1>
+          <button class="cta-button">Explore Platform</button>
 
-          <!-- CTA BUTTON -->
-          <button class="cta-button">EXPLORE OUR PLATFORM</button>
-
-          <!-- TEXT SECTION -->
+          <!-- RESTORED TEXT -->
           <section class="text-section">
-            <h2 class="glass-title" data-text="Organizational Overview">Organizational Overview</h2>
-            <p>FLVR (Flavuor) is a multidisciplinary technology and innovation company specializing in hardware, software, and AI.</p>
-            <p>FLVR (Flavuor) is a multidisciplinary technology and innovation company specializing in the development and integration of hardware, software, and artificial intelligence systems.
+            <h2>Organizational Overview</h2>
+            <p>
+              FLVR (Flavuor) is a multidisciplinary technology and innovation company specializing in the development and integration of hardware, software, and artificial intelligence systems.
+            </p>
+            <p>
+              We design and build smart, connected, and data-driven solutions — combining embedded hardware (Arduino, sensors, IoT) with custom software, AI pipelines, and data systems that improve automation, decision-making, and efficiency.
+            </p>
 
-We design and build smart, connected, and data-driven solutions — combining embedded hardware (Arduino, sensors, IoT) with custom software, AI pipelines, and data systems that improve automation, decision-making, and efficiency.
-            <h2 class="glass-title" data-text="Our Mission">Our Mission</h2>
-            <p>We aim to empower teams with intuitive tools that streamline communication, automate workflows, and improve productivity across departments.</p>
+            <h2>Our Mission</h2>
+            <p>
+              We aim to empower teams with intuitive tools that streamline communication, automate workflows, and improve productivity across departments.
+            </p>
           </section>
 
-          <!-- SPLIT GRID -->
-          <div class="split-grid">
-
+          <div class="grid">
             <div>
-              <h2 class="glass-title" data-text="Core Capabilities">Core Capabilities</h2>
+              <h2>Core Capabilities</h2>
               <ul>
                 <li>Project and task management</li>
                 <li>Team collaboration tools</li>
@@ -67,23 +72,22 @@ We design and build smart, connected, and data-driven solutions — combining em
               </ul>
             </div>
 
-            <div class="stats-box">
-              <h2 class="glass-title" data-text="Stats">Stats</h2>
-              <div class="stat-pill"><span class="stat-number">124</span><span>Active Projects</span></div>
-              <div class="stat-pill"><span class="stat-number">56</span><span>Clients</span></div>
-              <div class="stat-pill"><span class="stat-number">32</span><span>AI Systems</span></div>
+            <div class="stats">
+              <div class="pill"><b>124</b><span>Projects</span></div>
+              <div class="pill"><b>56</b><span>Clients</span></div>
+              <div class="pill"><b>32</b><span>AI Systems</span></div>
             </div>
-
           </div>
 
           <!-- CHART -->
-          <div class="chart-card glass-card">
-            <canvas #chartCanvas style="width:100%; height:320px;"></canvas>
+          <div class="chart-card">
+            <canvas #chartCanvas></canvas>
           </div>
 
-          <!-- CONTACT FORM -->
+          
           <section class="contact-section">
-            <h2 class="glass-title" data-text="Get in Touch">Get in Touch</h2>
+            <h2>Get in Touch and We'll Get Back to You Soon!</h2>
+
             <form class="contact-form" (submit)="submitForm($event)">
               <input type="text" placeholder="Your Name" name="name" required />
               <input type="email" placeholder="Your Email" name="email" required />
@@ -93,7 +97,7 @@ We design and build smart, connected, and data-driven solutions — combining em
           </section>
 
         </div>
-      </div>
+      </main>
 
     </div>
   </div>
