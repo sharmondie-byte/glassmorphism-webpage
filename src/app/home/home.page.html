@@ -4,7 +4,7 @@
     <!-- TOP BAR -->
     <header class="top-bar">
       <div class="left">
-        <div class="logo">Flavuor</div>
+        <div class="logo">🍃Flavuor</div>
         <span class="nav-title">Dashboard</span>
       </div>
 
@@ -12,13 +12,15 @@
         <ion-icon name="search-outline"></ion-icon>
         <ion-icon name="notifications-outline"></ion-icon>
         <div class="avatar">S.M</div>
+        <!-- Hamburger menu icon for mobile -->
+        <ion-icon name="menu-outline" class="hamburger" (click)="toggleMenu()"></ion-icon>
       </div>
     </header>
 
     <div class="layout">
 
       <!-- SIDEBAR -->
-      <aside class="sidebar">
+      <aside class="sidebar" [class.open]="isMenuOpen">
         <div class="profile">
           <div class="profile-icon"></div>
           <h3>Mondie</h3>
@@ -26,26 +28,26 @@
         </div>
 
         <ul>
-          <li class="active"><ion-icon name="home-outline"></ion-icon> Home</li>
-          <li><ion-icon name="folder-outline"></ion-icon> Projects</li>
-          <li><ion-icon name="checkbox-outline"></ion-icon> Tasks</li>
-          <li><ion-icon name="calendar-outline"></ion-icon> Calendar</li>
-          <li><ion-icon name="document-outline"></ion-icon> Files</li>
-          <li><ion-icon name="bar-chart-outline"></ion-icon> Analytics</li>
-          <li><ion-icon name="settings-outline"></ion-icon> Settings</li>
-          <li><ion-icon name="log-out-outline"></ion-icon> Logout</li>
+          <li class="active" title="Home"><ion-icon name="home-outline"></ion-icon> <span>Home</span></li>
+          <li title="Projects"><ion-icon name="folder-outline"></ion-icon> <span>Projects</span></li>
+          <li title="Tasks"><ion-icon name="checkbox-outline"></ion-icon> <span>Tasks</span></li>
+          <li title="Calendar"><ion-icon name="calendar-outline"></ion-icon> <span>Calendar</span></li>
+          <li title="Files"><ion-icon name="document-outline"></ion-icon> <span>Files</span></li>
+          <li title="Analytics"><ion-icon name="bar-chart-outline"></ion-icon> <span>Analytics</span></li>
+          <li title="Settings"><ion-icon name="settings-outline"></ion-icon> <span>Settings</span></li>
+          <li title="Logout"><ion-icon name="log-out-outline"></ion-icon> <span>Logout</span></li>
         </ul>
       </aside>
 
-      <!-- MAIN -->
+      <!-- MAIN CONTENT -->
       <main class="main">
         <div class="content">
 
+          <!-- HERO -->
           <h1 class="hero">Flavuor</h1>
+          <button class="cta-button">Explore our Platform</button>
 
-          <button class="cta-button">Explore Platform</button>
-
-          <!-- RESTORED TEXT -->
+          <!-- ORGANIZATIONAL TEXT -->
           <section class="text-section">
             <h2>Organizational Overview</h2>
             <p>
@@ -61,6 +63,7 @@
             </p>
           </section>
 
+          <!-- GRID / STATS -->
           <div class="grid">
             <div>
               <h2>Core Capabilities</h2>
@@ -84,10 +87,34 @@
             <canvas #chartCanvas></canvas>
           </div>
 
-          
+          <!-- CLIENT TESTIMONIALS -->
+          <section class="testimonials">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial-card">
+              <p>"Flavuor transformed our workflow. Productivity has never been better!"</p>
+              <span>- Alex D., CEO</span>
+            </div>
+            <div class="testimonial-card">
+              <p>"Intuitive platform and amazing support. Highly recommend!"</p>
+              <span>- Priya S., Project Manager</span>
+            </div>
+            <div class="testimonial-card">
+              <p>"Our team loves the analytics dashboard. It's a game changer."</p>
+              <span>- John M., CTO</span>
+            </div>
+          </section>
+
+          <!-- FREE TRIAL CTA -->
+<section class="trial-section">
+  <div class="trial-content">
+    <h2>Start Your Free 7-Day Trial</h2>
+    <button class="cta-button">Get Started</button>
+  </div>
+</section>
+
+          <!-- CONTACT FORM -->
           <section class="contact-section">
             <h2>Get in Touch and We'll Get Back to You Soon!</h2>
-
             <form class="contact-form" (submit)="submitForm($event)">
               <input type="text" placeholder="Your Name" name="name" required />
               <input type="email" placeholder="Your Email" name="email" required />

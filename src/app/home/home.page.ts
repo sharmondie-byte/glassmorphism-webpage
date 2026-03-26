@@ -13,7 +13,8 @@ import {
   settingsOutline,
   logOutOutline,
   searchOutline,
-  notificationsOutline
+  notificationsOutline,
+  menuOutline
 } from 'ionicons/icons';
 
 addIcons({
@@ -26,9 +27,9 @@ addIcons({
   settingsOutline,
   logOutOutline,
   searchOutline,
-  notificationsOutline
+  notificationsOutline,
+  menuOutline
 });
-
 
 @Component({
   selector: 'app-home',
@@ -41,20 +42,25 @@ export class HomePage implements AfterViewInit {
 
   @ViewChild('chartCanvas') chartRef!: ElementRef;
 
-  ngAfterViewInit() {
-    setTimeout(() => {
-      this.createChart();
-    }, 200); 
+  // ✅ Mobile menu toggle state
+  public isMenuOpen: boolean = false;
+
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
-  createChart() {
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.createChart();
+    }, 200);
+  }
+
+  createChart(): void {
     if (!this.chartRef) return;
 
     const canvas = this.chartRef.nativeElement as HTMLCanvasElement;
-const ctx = canvas.getContext('2d');
-
-if (!ctx) return;
-
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
     new Chart(ctx, {
       type: 'bar',
@@ -80,28 +86,22 @@ if (!ctx) return;
         maintainAspectRatio: false,
         plugins: {
           legend: {
-            labels: { color: '#f2f2f2' }
+            labels: { color: '#f5f5f5' }
           }
         },
         scales: {
-          x: {
-            ticks: { color: '#f2f2f2' },
-            grid: { color: 'rgba(255,255,255,0.1)' }
-          },
-          y: {
-            ticks: { color: '#f2f2f2' },
-            grid: { color: 'rgba(255,255,255,0.1)' }
-          }
+          x: { ticks: { color: '#f5f5f5' }, grid: { color: 'rgba(255,255,255,0.1)' } },
+          y: { ticks: { color: '#f5f5f5' }, grid: { color: 'rgba(255,255,255,0.1)' } }
         }
       }
     });
   }
 
   // =========================
-  // FORM SUBMIT LOGIC
+  // FORM SUBMIT
   // =========================
-  submitForm(event: Event) {
-    event.preventDefault(); // prevents page reload
+  submitForm(event: Event): void {
+    event.preventDefault();
 
     const form = event.target as HTMLFormElement;
     const name = (form.elements.namedItem('name') as HTMLInputElement).value;
@@ -109,11 +109,8 @@ if (!ctx) return;
     const phone = (form.elements.namedItem('phone') as HTMLInputElement).value;
 
     console.log('Form submitted:', { name, email, phone });
-
     form.reset();
-
     alert('Thanks! We will get back to you soon.');
   }
-
-} 
+}
 
