@@ -1,13 +1,28 @@
 /* =========================
-   SYSTEM FONT (iOS Style)
+   FONT IMPORT (SATOSHI)
 ========================= */
+@import url('https://fonts.cdnfonts.com/css/satoshi');
+
+/* =========================
+   GLOBAL TYPOGRAPHY
+========================= */
+* {
+  box-sizing: border-box; /*  Prevents overflow on mobile */
+}
+
 body, html {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-               Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: 'Satoshi', sans-serif;
   margin: 0;
-  color: #f5f5f5; /* off-white for all text */
-  font-size: 18px; /* base content text size increased */
+
+  color: rgba(255, 255, 255, 0.9);
+
+  font-size: 16px;
   line-height: 1.6;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden; /*  Prevent horizontal scroll */
 }
 
 /* =========================
@@ -19,7 +34,7 @@ ion-content {
 }
 
 /* =========================
-   APP WRAPPER
+   WRAPPER
 ========================= */
 .app-wrapper {
   max-width: 1400px;
@@ -28,7 +43,7 @@ ion-content {
 }
 
 /* =========================
-   TOP BAR (GLASS)
+   TOP BAR
 ========================= */
 .top-bar {
   height: 70px;
@@ -41,44 +56,16 @@ ion-content {
 
   background: rgba(255,255,255,0.06);
   backdrop-filter: blur(12px);
+
   border: 1px solid rgba(255,255,255,0.15);
-
   margin-bottom: 20px;
-}
 
-.top-bar .left {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  font-size: 20px;
-  color: #f5f5f5;
-}
-
-.right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-ion-icon {
-  font-size: 20px;
-  color: #f5f5f5;
-  opacity: 0.85;
-}
-
-.hamburger {
-  display: none;
-  cursor: pointer;
-}
-
-@media (max-width: 900px) {
-  .hamburger {
-    display: block;
-  }
+  font-size: 14px;
+  font-weight: 500;
 }
 
 /* =========================
-   SIDEBAR (GLASS)
+   SIDEBAR
 ========================= */
 .sidebar {
   width: 220px;
@@ -88,13 +75,6 @@ ion-icon {
   background: rgba(255,255,255,0.06);
   backdrop-filter: blur(14px);
   border: 1px solid rgba(255,255,255,0.15);
-
-  transition: transform 0.3s ease;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
 }
 
 .sidebar li {
@@ -103,34 +83,19 @@ ion-icon {
   padding: 12px;
   border-radius: 12px;
   cursor: pointer;
-  color: #f5f5f5;
-  transition: background 0.2s;
+  transition: 0.3s;
+
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .sidebar li:hover {
   background: rgba(255,255,255,0.15);
+  transform: translateX(4px);
 }
 
 .sidebar li.active {
-  background: rgba(255,255,255,0.2);
-}
-
-@media (max-width: 900px) {
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    transform: translateX(-100%);
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 250px;
-  }
-  .sidebar.open {
-    transform: translateX(0);
-  }
+  background: linear-gradient(90deg, rgba(0,255,200,0.2), transparent);
 }
 
 /* =========================
@@ -141,83 +106,101 @@ ion-icon {
   gap: 20px;
 }
 
-@media (max-width: 900px) {
-  .layout {
-    flex-direction: column;
-  }
-}
-
 /* =========================
-   MAIN CONTENT (GLASS PANEL)
+   MAIN CONTENT
 ========================= */
 .content {
   flex: 1;
-
   padding: 30px;
   border-radius: 25px;
 
   background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(160%);
 
-  border: 1px solid rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.2);
 
   box-shadow:
-    0 20px 60px rgba(0,0,0,0.5),
+    0 20px 60px rgba(0,0,0,0.6),
+    0 0 40px rgba(0,255,200,0.08),
     inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* =========================
+   HEADINGS
+========================= */
+h1 {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: #ffffff;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
 }
 
 /* =========================
    TEXT
 ========================= */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600; /* slightly bold like iOS headings */
-  color: #f5f5f5;
-  margin-bottom: 16px;
+p {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
 }
 
-p, li, span {
-  color: #f5f5f5;
-  font-size: 18px; /* increased content text size */
-  line-height: 1.6;
+span, li {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* =========================
    HERO
 ========================= */
 .hero {
-  font-size: 48px; /* bigger hero text */
-  margin-bottom: 20px;
+  font-size: 52px;
+  font-weight: 700;
+
+  background: linear-gradient(90deg, #ffffff, #aef1ff);
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* =========================
-   GLASS BUTTON
+   BUTTON
 ========================= */
 .cta-button {
-  display: inline-block;
-  margin-bottom: 30px;
-
   padding: 14px 30px;
   border-radius: 14px;
 
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-
+  background: linear-gradient(135deg, rgba(0,255,200,0.2), rgba(0,150,255,0.2));
   border: 1px solid rgba(255,255,255,0.25);
 
-  color: #f5f5f5;
-  font-weight: 500;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
 
   cursor: pointer;
   transition: 0.3s;
 }
 
 .cta-button:hover {
-  background: rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0,255,200,0.2);
 }
 
 /* =========================
-   GRID
+   GRID (GENERAL)
 ========================= */
 .grid {
   display: grid;
@@ -226,52 +209,64 @@ p, li, span {
 }
 
 /* =========================
-   STATS
+    STATS GRID
+========================= */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* =========================
+   STATS CARDS
 ========================= */
 .pill {
   display: flex;
-  justify-content: space-between;
-  padding: 12px;
-  border-radius: 12px;
+  flex-direction: column;
+  gap: 6px;
+
+  padding: 16px;
+  border-radius: 14px;
 
   background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-
-  margin-bottom: 10px;
-}
-
-/* =========================
-   CHART
-========================= */
-.chart-card {
-  height: 320px;
-  margin-top: 40px;
-  position: relative;
-}
-
-/* =========================
-   CONTACT & TESTIMONIALS
-========================= */
-.contact-section, .testimonials {
-  margin-top: 60px;
-  padding: 40px;
-  border-radius: 25px;
-
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(14px);
-
   border: 1px solid rgba(255,255,255,0.2);
 }
 
-.testimonials .testimonial-card {
-  padding: 16px;
-  margin-bottom: 20px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.05);
+.pill span {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: rgba(255,255,255,0.6);
+}
+
+.pill strong {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 /* =========================
-   CONTACT SECTION RESTORED
+   TESTIMONIALS
+========================= */
+.testimonial-card {
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+
+  transition: 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* =========================
+   CONTACT
 ========================= */
 .contact-section {
   margin-top: 60px;
@@ -283,7 +278,7 @@ p, li, span {
 
   border: 1px solid rgba(255,255,255,0.2);
 
-  max-width: 600px; /* keep it centered & not stretched */
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -292,7 +287,6 @@ p, li, span {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 100%;
 }
 
 .contact-form input {
@@ -303,82 +297,323 @@ p, li, span {
   background: rgba(255,255,255,0.06);
 
   color: #f5f5f5;
-  font-size: 18px; /* make text readable */
-}
-
-.contact-form input::placeholder {
-  color: rgba(255,255,255,0.6);
-}
-
-.contact-form button.cta-button {
-  width: fit-content;
-  align-self: flex-start;
 }
 
 /* =========================
-   RESPONSIVE
+   SPACING
 ========================= */
+.text-section,
+.chart-card,
+.testimonials,
+.trial-section {
+  margin-top: 40px;
+}
+
+/* =========================
+   MOBILE FIXES
+========================= */
+.hamburger {
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
 @media (max-width: 900px) {
-  .content {
-    width: 100%;
+
+  .hamburger {
+    display: block;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    position: fixed;
+    top: 90px;
+    left: 20px;
+
+    width: 250px;
     padding: 20px;
-  }
 
-  .grid {
-    grid-template-columns: 1fr;
-  }
+    transform: translateX(-120%);
+    transition: 0.3s ease;
 
-  .chart-card {
-    width: 100%;
-    height: 280px;
-  }
-}
+    z-index: 1000;
 
-/* =========================
-   MOBILE VIEW CONTENT PADDING FIX
-========================= */
-@media (max-width: 900px) {
-  .content {
-    width: calc(100% - 40px); /* leave 20px space on both sides */
-    padding: 20px;            /* inner padding */
-    margin: 0 auto;           /* center the card */
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(16px);
     border-radius: 20px;
   }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Wrapper + Content */
+  .app-wrapper {
+    padding: 0 16px;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  /* Layout fixes */
+  .layout {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Stats grid */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* =========================
-   TRIAL SECTION
+   ICON + TEXT FORCE
 ========================= */
-.trial-section {
-  margin-top: 60px;
-  padding: 40px;
-  border-radius: 25px;
-
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.2);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+ion-icon,
+.sidebar ion-icon,
+.top-bar ion-icon {
+  color: #ffffff !important;
+  opacity: 1 !important;
 }
 
-.trial-section h2 {
+/* =========================
+   TYPOGRAPHY UPGRADE (SAFE SCALE)
+========================= */
+
+/* Slight global improvement without breaking layout */
+html {
+  font-size: 16px;
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Improve readability */
+p {
+  font-size: 1.05rem;
+}
+
+/* Stronger hierarchy */
+h1 {
+  font-size: 2.4rem;
+}
+
+h2 {
+  font-size: 1.9rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+/* =========================
+   GLASSMORPHISM REFINEMENT
+========================= */
+
+.content,
+.sidebar,
+.top-bar,
+.contact-section {
+  background: rgba(255,255,255,0.05) !important;
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* =========================
+   CARD INTERACTIONS
+========================= */
+
+.pill,
+.testimonial-card,
+.content {
+  transition: all 0.3s ease;
+}
+
+.pill:hover,
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+/* =========================
+   STATS IMPROVEMENT
+========================= */
+
+.pill strong {
+  font-size: 1.6rem;
+  letter-spacing: -0.5px;
+}
+
+/* =========================
+   BUTTON POLISH
+========================= */
+
+.cta-button {
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* =========================
+   SMOOTH UI FEEL
+========================= */
+
+* {
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* =========================
+   LIVE ACTIVITY FEED
+========================= */
+
+.live-feed {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.live-feed h3 {
+  margin-bottom: 12px;
+}
+
+/* Individual activity items */
+.feed-item {
+  font-size: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+
+  opacity: 0;
+  transform: translateY(10px);
+
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* stagger effect */
+.feed-item:nth-child(2) { animation-delay: 0.2s; }
+.feed-item:nth-child(3) { animation-delay: 0.4s; }
+.feed-item:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   FINAL DASHBOARD POLISH (DEPLOY SAFE)
+========================= */
+
+/* 🔤 Bigger + cleaner typography */
+body {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+h1 {
   font-size: 2.6rem;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #f5f5f5;
 }
 
-.trial-section .cta-button {
-  font-size: 1.2rem;
-  padding: 14px 30px;
-  
-.trial-section .cta-button {
-  font-size: 1.2rem;
-  padding: 14px 30px;
-  align-self: center; /* ensures button is centered */
+h2 {
+  font-size: 2.1rem;
 }
 
+h3 {
+  font-size: 1.6rem;
+}
+
+p {
+  font-size: 1.1rem;
+}
+
+span, li {
+  font-size: 1rem;
+}
+
+/* 🧭 Sidebar improvement (bigger + clearer) */
+.sidebar {
+  width: 250px;
+}
+
+.sidebar li {
+  font-size: 16px;
+  padding: 14px;
+}
+
+.sidebar ion-icon {
+  font-size: 20px;
+}
+
+/* 🔝 Top bar readability */
+.top-bar {
+  font-size: 15px;
+  padding: 0 25px;
+}
+
+.top-bar ion-icon {
+  font-size: 20px;
+}
+
+/* 📊 Better spacing (fix “stacked” feeling) */
+.grid {
+  gap: 40px;
+}
+
+.stats-grid {
+  gap: 25px;
+}
+
+/* 🧩 Card breathing space */
+.content {
+  padding: 40px;
+}
+
+/* Prevent sections from sitting on each other */
+.content > * {
+  margin-bottom: 30px;
+}
+
+/*  Stats look more important */
+.pill {
+  padding: 20px;
+  border-radius: 18px;
+}
+
+.pill strong {
+  font-size: 2rem;
+}
+
+.pill span {
+  font-size: 0.8rem;
+}
+
+/* Prevent ANY overflow issues (important for GitHub deploy) */
+.content,
+.app-wrapper {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/*  Slight polish */
+.testimonial-card {
+  padding: 20px;
+  border-radius: 16px;
+}
+
+/*  Keep glass edges clean (no hugging edges) */
+.app-wrapper {
+  padding-left: 40px;
+  padding-right: 40px;
 }

@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import Chart from 'chart.js/auto';
 
@@ -38,23 +38,56 @@ addIcons({
   standalone: true,
   imports: [IonicModule],
 })
-export class HomePage implements AfterViewInit {
+export class HomePage implements AfterViewInit, OnInit {
 
   @ViewChild('chartCanvas') chartRef!: ElementRef;
 
-  // ✅ Mobile menu toggle state
+  // ✅ Mobile menu toggle
   public isMenuOpen: boolean = false;
+
+  // ✅ Stats
+  public stats = {
+    dnaSequences: 0,
+    samplesProcessed: 0,
+    researchProjects: 0,
+    breakthroughs: 0
+  };
 
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
+  // ✅ Runs when page loads
+  ngOnInit(): void {
+    this.loadBiotechStats();
+
+    // Live stats refresh
+    setInterval(() => {
+      this.loadBiotechStats();
+    }, 3000);
+  }
+
+  // ✅ Fake API for stats
+  loadBiotechStats(): void {
+    setTimeout(() => {
+      this.stats = {
+        dnaSequences: Math.floor(Math.random() * 5000 + 1000),
+        samplesProcessed: Math.floor(Math.random() * 2000 + 500),
+        researchProjects: Math.floor(Math.random() * 150 + 20),
+        breakthroughs: Math.floor(Math.random() * 50 + 5)
+      };
+    }, 500);
+  }
+
+  // ✅ After view loads
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.createChart();
+      this.startLiveFeed(); // 🔥 THIS WAS MISSING PROPERLY
     }, 200);
   }
 
+  // ✅ Chart
   createChart(): void {
     if (!this.chartRef) return;
 
@@ -90,16 +123,48 @@ export class HomePage implements AfterViewInit {
           }
         },
         scales: {
-          x: { ticks: { color: '#f5f5f5' }, grid: { color: 'rgba(255,255,255,0.1)' } },
-          y: { ticks: { color: '#f5f5f5' }, grid: { color: 'rgba(255,255,255,0.1)' } }
+          x: {
+            ticks: { color: '#f5f5f5' },
+            grid: { color: 'rgba(255,255,255,0.1)' }
+          },
+          y: {
+            ticks: { color: '#f5f5f5' },
+            grid: { color: 'rgba(255,255,255,0.1)' }
+          }
         }
       }
     });
   }
 
-  // =========================
-  // FORM SUBMIT
-  // =========================
+  // 🔥 LIVE FEED FUNCTION (CLEAN + WORKING)
+  startLiveFeed(): void {
+    const messages = [
+      "+5 users joined",
+      "New signup completed",
+      "+2 subscriptions upgraded",
+      "Server response improved",
+      "New data synced"
+    ];
+
+    const feed = document.querySelector('.live-feed');
+
+    setInterval(() => {
+      if (!feed) return;
+
+      const item = document.createElement('div');
+      item.className = 'feed-item';
+      item.innerText = messages[Math.floor(Math.random() * messages.length)];
+
+      feed.appendChild(item);
+
+      // Keep it clean (max 6 items including title)
+      if (feed.children.length > 6) {
+        feed.removeChild(feed.children[1]);
+      }
+    }, 3000);
+  }
+
+  // ✅ Form
   submitForm(event: Event): void {
     event.preventDefault();
 
@@ -113,4 +178,3 @@ export class HomePage implements AfterViewInit {
     alert('Thanks! We will get back to you soon.');
   }
 }
-

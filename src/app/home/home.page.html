@@ -4,14 +4,14 @@
     <!-- TOP BAR -->
     <header class="top-bar">
       <div class="left">
-        <div class="logo">🍃Flavuor</div>
-        <span class="nav-title">Dashboard</span>
+        
+        <span class="nav-title">🍃Flavuor Dashboard</span>
       </div>
-
+       
       <div class="right">
         <ion-icon name="search-outline"></ion-icon>
         <ion-icon name="notifications-outline"></ion-icon>
-        <div class="avatar">S.M</div>
+        
         <!-- Hamburger menu icon for mobile -->
         <ion-icon name="menu-outline" class="hamburger" (click)="toggleMenu()"></ion-icon>
       </div>
@@ -44,7 +44,7 @@
         <div class="content">
 
           <!-- HERO -->
-          <h1 class="hero">Flavuor</h1>
+          <h1 class="hero">Flavuor🍃</h1>
           <button class="cta-button">Explore our Platform</button>
 
           <!-- ORGANIZATIONAL TEXT -->
@@ -74,18 +74,44 @@
                 <li>Business analytics and reporting</li>
               </ul>
             </div>
-
+            
             <div class="stats">
               <div class="pill"><b>124</b><span>Projects</span></div>
               <div class="pill"><b>56</b><span>Clients</span></div>
               <div class="pill"><b>32</b><span>AI Systems</span></div>
             </div>
           </div>
-
+          
           <!-- CHART -->
           <div class="chart-card">
             <canvas #chartCanvas></canvas>
           </div>
+          <div class="live-feed">
+  <h3>Live Activity</h3>
+
+  <div class="stats-grid">
+  <div class="pill">
+    <span>DNA Sequences</span>
+    <strong>{{ stats.dnaSequences }}</strong>
+  </div>
+  <div class="pill">
+    <span>Samples Processed</span>
+    <strong>{{ stats.samplesProcessed }}</strong>
+  </div>
+  <div class="pill">
+    <span>Research Projects</span>
+    <strong>{{ stats.researchProjects }}</strong>
+  </div>
+  <div class="pill">
+    <span>Breakthroughs</span>
+    <strong>{{ stats.breakthroughs }}</strong>
+  </div>
+</div>
+
+  <div class="feed-item">+12 users joined</div>
+  <div class="feed-item">Server synced</div>
+  <div class="feed-item">+3 new signups</div>
+</div>
 
           <!-- CLIENT TESTIMONIALS -->
           <section class="testimonials">
