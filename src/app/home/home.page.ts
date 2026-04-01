@@ -83,7 +83,7 @@ export class HomePage implements AfterViewInit, OnInit {
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.createChart();
-      this.startLiveFeed(); // 🔥 THIS WAS MISSING PROPERLY
+      this.startLiveFeed();
     }, 200);
   }
 
@@ -136,7 +136,7 @@ export class HomePage implements AfterViewInit, OnInit {
     });
   }
 
-  // 🔥 LIVE FEED FUNCTION (CLEAN + WORKING)
+  // 🔥 LIVE FEED
   startLiveFeed(): void {
     const messages = [
       "+5 users joined",
@@ -157,11 +157,21 @@ export class HomePage implements AfterViewInit, OnInit {
 
       feed.appendChild(item);
 
-      // Keep it clean (max 6 items including title)
       if (feed.children.length > 6) {
         feed.removeChild(feed.children[1]);
       }
     }, 3000);
+  }
+
+  // ✅ 🔥 THIS WAS MISSING (NOW FIXED)
+  scrollToSection(): void {
+    const section = document.querySelector('.text-section');
+    if (section) {
+      section.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   }
 
   // ✅ Form
@@ -178,3 +188,4 @@ export class HomePage implements AfterViewInit, OnInit {
     alert('Thanks! We will get back to you soon.');
   }
 }
+

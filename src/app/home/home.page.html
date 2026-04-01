@@ -4,23 +4,33 @@
     <!-- TOP BAR -->
     <header class="top-bar">
       <div class="left">
-        
         <span class="nav-title">🍃Flavuor Dashboard</span>
       </div>
        
       <div class="right">
-        <ion-icon name="search-outline"></ion-icon>
-        <ion-icon name="notifications-outline"></ion-icon>
-        
-        <!-- Hamburger menu icon for mobile -->
+
+        <!-- SEARCH -->
+        <div class="glass-btn icon-btn">
+          <ion-icon name="search-outline"></ion-icon>
+        </div>
+
+        <!-- NOTIFICATIONS -->
+        <div class="glass-btn icon-btn">
+          <ion-icon name="notifications-outline"></ion-icon>
+        </div>
+
+        <!-- HAMBURGER -->
         <ion-icon name="menu-outline" class="hamburger" (click)="toggleMenu()"></ion-icon>
+
       </div>
     </header>
 
+    <!-- LAYOUT -->
     <div class="layout">
 
       <!-- SIDEBAR -->
       <aside class="sidebar" [class.open]="isMenuOpen">
+
         <div class="profile">
           <div class="profile-icon"></div>
           <h3>Mondie</h3>
@@ -28,42 +38,43 @@
         </div>
 
         <ul>
-          <li class="active" title="Home"><ion-icon name="home-outline"></ion-icon> <span>Home</span></li>
-          <li title="Projects"><ion-icon name="folder-outline"></ion-icon> <span>Projects</span></li>
-          <li title="Tasks"><ion-icon name="checkbox-outline"></ion-icon> <span>Tasks</span></li>
-          <li title="Calendar"><ion-icon name="calendar-outline"></ion-icon> <span>Calendar</span></li>
-          <li title="Files"><ion-icon name="document-outline"></ion-icon> <span>Files</span></li>
-          <li title="Analytics"><ion-icon name="bar-chart-outline"></ion-icon> <span>Analytics</span></li>
-          <li title="Settings"><ion-icon name="settings-outline"></ion-icon> <span>Settings</span></li>
-          <li title="Logout"><ion-icon name="log-out-outline"></ion-icon> <span>Logout</span></li>
+          <li class="active"><ion-icon name="home-outline"></ion-icon> <span>Home</span></li>
+          <li><ion-icon name="folder-outline"></ion-icon> <span>Projects</span></li>
+          <li><ion-icon name="checkbox-outline"></ion-icon> <span>Tasks</span></li>
+          <li><ion-icon name="calendar-outline"></ion-icon> <span>Calendar</span></li>
+          <li><ion-icon name="document-outline"></ion-icon> <span>Files</span></li>
+          <li><ion-icon name="bar-chart-outline"></ion-icon> <span>Analytics</span></li>
+          <li><ion-icon name="settings-outline"></ion-icon> <span>Settings</span></li>
+          <li><ion-icon name="log-out-outline"></ion-icon> <span>Logout</span></li>
         </ul>
+
       </aside>
 
-      <!-- MAIN CONTENT -->
+      <!-- MAIN -->
       <main class="main">
         <div class="content">
 
           <!-- HERO -->
           <h1 class="hero">Flavuor🍃</h1>
-          <button class="cta-button">Explore our Platform</button>
+          <button class="glass-btn cta-button">Explore our Platform</button>
 
-          <!-- ORGANIZATIONAL TEXT -->
+          <!-- TEXT -->
           <section class="text-section">
             <h2>Organizational Overview</h2>
             <p>
               FLVR (Flavuor) is a multidisciplinary technology and innovation company specializing in the development and integration of hardware, software, and artificial intelligence systems.
             </p>
             <p>
-              We design and build smart, connected, and data-driven solutions — combining embedded hardware (Arduino, sensors, IoT) with custom software, AI pipelines, and data systems that improve automation, decision-making, and efficiency.
+              We design and build smart, connected, and data-driven solutions — combining embedded hardware with custom software and AI pipelines to improve automation and decision-making.
             </p>
 
             <h2>Our Mission</h2>
             <p>
-              We aim to empower teams with intuitive tools that streamline communication, automate workflows, and improve productivity across departments.
+              We aim to empower teams with intuitive tools that streamline communication, automate workflows, and improve productivity.
             </p>
           </section>
 
-          <!-- GRID / STATS -->
+          <!-- GRID -->
           <div class="grid">
             <div>
               <h2>Core Capabilities</h2>
@@ -81,77 +92,95 @@
               <div class="pill"><b>32</b><span>AI Systems</span></div>
             </div>
           </div>
-          
+
           <!-- CHART -->
           <div class="chart-card">
             <canvas #chartCanvas></canvas>
           </div>
+
+          <!-- LIVE FEED -->
           <div class="live-feed">
-  <h3>Live Activity</h3>
+            <h3>Live Activity</h3>
 
-  <div class="stats-grid">
-  <div class="pill">
-    <span>DNA Sequences</span>
-    <strong>{{ stats.dnaSequences }}</strong>
-  </div>
-  <div class="pill">
-    <span>Samples Processed</span>
-    <strong>{{ stats.samplesProcessed }}</strong>
-  </div>
-  <div class="pill">
-    <span>Research Projects</span>
-    <strong>{{ stats.researchProjects }}</strong>
-  </div>
-  <div class="pill">
-    <span>Breakthroughs</span>
-    <strong>{{ stats.breakthroughs }}</strong>
-  </div>
-</div>
+            <div class="stats-grid">
+              <div class="pill">
+                <span>DNA Sequences</span>
+                <strong>{{ stats.dnaSequences }}</strong>
+              </div>
+              <div class="pill">
+                <span>Samples Processed</span>
+                <strong>{{ stats.samplesProcessed }}</strong>
+              </div>
+              <div class="pill">
+                <span>Research Projects</span>
+                <strong>{{ stats.researchProjects }}</strong>
+              </div>
+              <div class="pill">
+                <span>Breakthroughs</span>
+                <strong>{{ stats.breakthroughs }}</strong>
+              </div>
+            </div>
 
-  <div class="feed-item">+12 users joined</div>
-  <div class="feed-item">Server synced</div>
-  <div class="feed-item">+3 new signups</div>
-</div>
+            <div class="feed-item">+12 users joined</div>
+            <div class="feed-item">Server synced</div>
+            <div class="feed-item">+3 new signups</div>
+          </div>
 
-          <!-- CLIENT TESTIMONIALS -->
+          <!-- TESTIMONIALS -->
           <section class="testimonials">
             <h2>What Our Clients Say</h2>
+
             <div class="testimonial-card">
               <p>"Flavuor transformed our workflow. Productivity has never been better!"</p>
               <span>- Alex D., CEO</span>
             </div>
+
             <div class="testimonial-card">
               <p>"Intuitive platform and amazing support. Highly recommend!"</p>
               <span>- Priya S., Project Manager</span>
             </div>
+
             <div class="testimonial-card">
               <p>"Our team loves the analytics dashboard. It's a game changer."</p>
               <span>- John M., CTO</span>
             </div>
           </section>
 
-          <!-- FREE TRIAL CTA -->
-<section class="trial-section">
-  <div class="trial-content">
-    <h2>Start Your Free 7-Day Trial</h2>
-    <button class="cta-button">Get Started</button>
-  </div>
-</section>
+          <!-- TRIAL -->
+          <section class="trial-section">
+            <div class="trial-content">
+              <h2>Start Your Free 7-Day Trial</h2>
+              <button class="glass-btn cta-button">Get Started</button>
+            </div>
+          </section>
 
-          <!-- CONTACT FORM -->
+          <!-- CONTACT -->
           <section class="contact-section">
             <h2>Get in Touch and We'll Get Back to You Soon!</h2>
+
             <form class="contact-form" (submit)="submitForm($event)">
               <input type="text" placeholder="Your Name" name="name" required />
               <input type="email" placeholder="Your Email" name="email" required />
               <input type="tel" placeholder="Phone Number" name="phone" />
-              <button type="submit" class="cta-button">Submit</button>
+
+              <button type="submit" class="glass-btn cta-button">
+                Submit
+              </button>
             </form>
           </section>
 
         </div>
       </main>
 
-    </div>
+    </div> <!-- layout -->
+
+  </div> <!-- app-wrapper -->
+
+>
+<div class="next-page-container">
+  <div class="next-page-btn" (click)="scrollToSection()">
+    >>
   </div>
+</div>
+
 </ion-content>
